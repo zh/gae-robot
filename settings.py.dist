@@ -1,3 +1,4 @@
+ROBOT_NICK = 'some-robot'
 DEBUG = True
 
 MPUB_PASS = 'YOUR_MESSAGEPUB_API_KEY'

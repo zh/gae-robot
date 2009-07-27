@@ -24,7 +24,7 @@ def OnParticipantsChanged(properties, context):
   """Invoked when any participants have been added/removed."""
   added = properties['participantsAdded']
   for p in added:
-    if p != 'gae-robot@appspot.com':
+    if p != settings.ROBOT_NICK+'@appspot.com':
       Notify(context, "Hi, " + p)
 
 
@@ -40,7 +40,7 @@ def OnBlipSubmitted(properties, context):
   doc = blip.GetDocument()
   text = doc.GetText()
   try:
-    if text != '':
+    if text != '' and text !='cc:xmpp' and text !='cc:twitter':
       if CC_XMPP in text:
         text = text.replace('cc:xmpp','')
         note = Notification({'escalation':10, 'body':text, 'recipients':{'recipient':[{'position':1,'channel':'gchat','address':settings.MPUB_XMPP}]}})
@@ -62,10 +62,10 @@ def Notify(context, message):
 
 
 if __name__ == '__main__':
-  myRobot = robot.Robot('gae-robot', 
-      image_url='http://gae-robot.appspot.com/assets/bot.png',
+  myRobot = robot.Robot(settings.ROBOT_NICK, 
+      image_url='http://%s.appspot.com/assets/bot.png' % settings.ROBOT_NICK,
       version='1',
-      profile_url='http://gae-robot.appspot.com/')
+      profile_url='http://%s.appspot.com/' % settings.ROBOT_NICK)
   myRobot.RegisterHandler(events.WAVELET_PARTICIPANTS_CHANGED, OnParticipantsChanged)
   myRobot.RegisterHandler(events.WAVELET_SELF_ADDED, OnRobotAdded)
   myRobot.RegisterHandler(events.BLIP_SUBMITTED, OnBlipSubmitted)
