@@ -1,0 +1,10 @@
+application: gae-robot
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /_wave/.*
+  script: gaerobot.py
+- url: /assets
+  static_dir: assets

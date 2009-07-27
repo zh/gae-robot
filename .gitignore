@@ -1,0 +1,9 @@
+*.orig
+*.rej
+*~
+*.swp
+*.o
+*.log
+*.pyc
+index.yaml
+settings.py

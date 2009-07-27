@@ -1,0 +1,23 @@
+GAE-Robot
+==========
+
+Simple Google Wave Robot, hosted on AppEngine (GAE). Using MessagePub 
+http://messagepub.com/ for posting to GTalk, Twitter etc.
+
+
+Requirements
+-------------
+
+You need an account on MessagePub. Your API key is on 'Account|Settings'
+http://messagepub.com/account/edit . On the same page configure also
+the Twitter settings. For XMPP you'll be asked to add the MessagePub bot
+to your roster.
+
+Usage
+------
+
+1. Copy settings.py.dist to settings.py and adjust it for your accounts
+2. Deploy the robot to AppEngine
+3. Add {gae-application-name}@appspot.com to some wave
+4. To send a copy of the blip text to XMPP or twitter, add 'cc:twitter' or
+   'cc:xmpp' in the blip text and press 'Done' button.

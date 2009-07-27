@@ -1,0 +1,6 @@
+DEBUG = True
+
+MPUB_PASS = 'YOUR_MESSAGEPUB_API_KEY'
+MPUB_SITE = 'http://%s@messagepub.com/' % MPUB_PASS
+MPUB_XMPP = 'you@example.com'
+MPUB_TWITTER = 'you_on_twitter'
