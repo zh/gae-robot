@@ -7,3 +7,4 @@
 *.pyc
 index.yaml
 settings.py
+deploy.sh

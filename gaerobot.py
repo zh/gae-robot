@@ -38,9 +38,10 @@ def OnBlipSubmitted(properties, context):
   """Invoked when new blip submitted."""
   blip = context.GetBlipById(properties['blipId'])
   doc = blip.GetDocument()
+  creator = blip.GetCreator() 
   text = doc.GetText()
   try:
-    if text != '' and text !='cc:xmpp' and text !='cc:twitter':
+    if creator in settings.ADMINS and text != '' and text !='cc:xmpp' and text !='cc:twitter':
       if CC_XMPP in text:
         text = text.replace('cc:xmpp','')
         note = Notification({'escalation':10, 'body':text, 'recipients':{'recipient':[{'position':1,'channel':'gchat','address':settings.MPUB_XMPP}]}})

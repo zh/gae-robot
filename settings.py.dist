@@ -1,4 +1,5 @@
 ROBOT_NICK = 'some-robot'
+ADMINS = ['you@wavesandbox.com', 'you-test@wavesandbox.com']
 DEBUG = True
 
 MPUB_PASS = 'YOUR_MESSAGEPUB_API_KEY'
